@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rating</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//G:/workspace/ICCcorporatewebsite(house)/ICC_Fintech/css/font-awesome.min.css">
+
+	<style type="text/css">
+	* {font-family: 'Josefin Sans', sans-serif; padding: 0; margin: 0}
+	.ratingDiv {text-align: center;}
+	.star {font-size: 20px; padding: 30px 0; text-align: center; list-style: none }
+	.star li {display: inline-block; padding: 0 10px;}
+	.output {font-size: 15px; color: green; margin:0 0 15px; }
+	.btnNext {width: 150px; line-height:35px;background:#737373; border: none; border-radius: 5px; cursor: pointer;}
+	.orange {color: orange}
+	.yellow {color: yellow}
+</style>
+</head>
+<body>
+
+	<div class="ratingDiv">
+		<ul class="star">
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+		</ul>
+
+		<p class="output">Rating </p>
+		<br>
+		<button class="btnNext">Next</button>
+	</div>
+
+	<script>
+
+
+		const vegtbl = ['aaloo', 'bhindi', 'gobhi', 'tamatar', 'shimla mirch'];
+
+		vegtbl.forEach(function(sabgiVal, ind, arr){
+			sabgiVal
+			//console.log(`${ind + 100} `);
+		});
+
+		// for of loop , iterable obhects pe use hote hai for of loop 
+		// iterable matlab one by one check karna hi kehlata hai 
+        // arrays, strings these both are iterable objects hai 
+
+		const foodAr = ['sabji', 'roti', 'chawal', 'dhee', 'Masahle'];
+
+		for(itenNum of "foodAr"){
+			//console.log(foodAr)
+		}
+
+		// for in loop 
+
+		// jab apko object ki propery ke bare main dekhna ho ya janna ho tab ap for in loop use karo 
+
+
+		const biodata = {
+			name : "Amita",
+			age : 25,
+			degree : "MCS"
+		}
+
+		for ( prop in biodata) {
+			//console.log(prop);
+		}
+
+
+		// word count
+
+		function wordCount(str){
+			let tempArr = str.split('');
+			let letters = [];
+			let count = 1;
+
+			for(let i =0 ; i<tempArr.length; i++) {
+				if(tempArr[i]===tempArr[i+1]){
+					count++;
+				} else {
+					let value = `${count} ${tempArr[i]}`;
+					letters = [...letters,value];
+					count=1;
+				}
+			}
+			return letters.join('');
+		}
+
+		console.log(wordCount('Hello there, how are you? asas as asa'));
+
+
+		let ab = [1,85,5,11,8,0,4,1,85];
+		let ba = [];
+		let len = ab.length;
+
+		obj = {};
+
+		for(let i of ab){
+			obj[i] = true;
+		}
+
+		let bc = Object.keys(obj)
+
+		console.log(bc)
+
+
+		let numarr = [1,85,5,11,8,0,4,1,85];
+
+		//let bSet = new Set(numarr);
+
+		console.log([...new Set(numarr)]);
+		//console.log(bSet)
+
+		// ab.sort();
+		// let _tem;	
+
+		// for(let i =0; i<len;i++){
+		// 	if(ab[i] !== _tem){
+		// 		ba.push(ab[i]);
+		// 		_tem = ab[i];
+		// 	}
+		// }
+
+
+		// for(let i =0; i<len;i++){
+		// 	if(ba.indexOf(ab[i])=== -1){
+		// 		ba.push(ab[i]);
+		// 	}
+		// }
+
+		console.log(ba)
+
+
+		//es6 strings.Methods
+
+		const firstName = "Amita";
+		const Lname = "Nigam";
+		const fname = `${firstName}`;
+		const fullname = `${firstName} ${Lname} `
+
+		console.log(fname.startsWith('A'));
+		console.log(fname.endsWith('a'));
+		console.log(fname.includes('AmitaNigam'));
+		console.log(fullname.repeat(10));
+
+
+		//JavaScript Program to Swap Two Numbers without using Third Variable?
+
+		let a = 5;
+		let b = 15;
+
+
+		// let tem = a;
+		// a = b;
+		// b = tem;
+
+		[a,b] = [b,a];
+
+		console.log(`The value of a is ${a} and the value of b is ${b}.`)
+
+		// Object Destructuring in ES6
+
+		const readHeading = {
+			name : "javascript",
+			lang : 'HTML',
+			nextLng : 'css',
+			inLang : {
+				first : 'playing',
+				sec : 'gane sunna'
+			}
+		}
+
+		let {name, lang, nextLng, inLang} = readHeading;
+
+		console.log(`my imp lnge is ${name}, need to use ${lang} and want to use ${nextLng} with my project. I love ${inLang.sec} `);
+
+		// ES6 Default Parameters in JavaScript
+
+		function mult(a,b){
+			console.log(a*b);
+		}
+
+		mult(4)
+
+		// es 5
+
+		function mult(a,b){
+			b = (typeof b !== 'undefined') ? b : 2
+			console.log(a*b);
+		}
+
+		mult(4)
+
+		function mult(a,b=4){
+			console.log(a*b);
+		}
+
+		mult(4)
+
+		// Rest Parameters in ES6 
+
+		const mult1 = (a,b=2, c=5) => {
+			console.log(`the mult of three no. is ${a*b*c}`)
+		}
+
+		mult1(4);
+
+		// Spread Operator in ES6
+		// it replce Apply(); method
+		function sum(a,b,c){
+			console.log(a+b+c);
+		}
+
+		//sum(2,4,6);
+
+		var arr = [ 8,2,5];
+
+		// this s simple javascript
+		//sum.apply(null, arr);
+
+		// this is Spread Operator in ES6
+		console.log(...arr);  
+		sum(...arr);
+
+		let arr1 = [ 1,2,3];
+		//let arr2 = arr1;
+		//arr2.push(4,5);
+		let arr2 = [...arr1, 4,5]
+
+		console.log(arr1);
+		console.log(arr2);
+
+		// Math Object in JavaScript | Math.sign(), Math.trunc() in ES6
+
+		let num = 5.556
+		console.log(Math.trunc(num));
+
+		// Exponentiation Operator in ES6 
+
+		let aa =5; 
+		let bb = 4;
+
+		console.log(aa**bb);
+
+
+		// Classes, Object & Inheritance in JavaScript OOP
+
+		// function student(){
+
+		// }
+
+		class student{
+			constructor(name, age, cls){
+				this.myname = name;
+				this.myage = age;
+				this.mycls = cls;
+			}
+			//instance method
+			biodtaClass(){
+				return `Hi I am a class method ${this.myname} ${this.myage} ${this.mycls}`;
+			}
+		}
+
+		class paler extends student {
+			constructor(name, age, cls, game){
+				super(name, age, cls);
+				this.myGame = game;
+			}
+			play_biodt(){
+				return `${super.biodtaClass()}. I am player of ${this.myGame}`;
+			}
+		}
+		
+		let obj1 = new paler('Amita', 26, 'MCA', 'khokho');
+		//let obj2 = new student('Savita', 25, 'BA');
+		//let obj3 = new student('Sadhna', 24, 'BCS');
+		//console.log(obj1);
+		console.log(obj1.play_biodt());
+		//obj2.biodtaClass();
+		//obj3.biodtaClass();
+
+		// Interview Q / A
+
+		let names = ['Sagar', 'Kudrat', 'Ram', "test"];
+
+		// need to find only one method n update, create nd del task karna hai 
+
+		// Array Splice Method
+
+		//const newName = names.splice(names.length,0,"Nigam")
+		//const newName = names.splice(1, 1,'KUDRAT')
+		const newName = names.splice(2,1)
+		console.log(names);
+		console.log(newName);
+
+		//find vs filter => search
+
+		//What is find:
+
+		const arra1 = [1,5,12,96,63,45,400];
+
+		// find number > 12
+
+		const newarr = arra1.filter((elem, index, arr) => {
+			console.log(`${elem}, index no ${index} and ${arr}`)
+			return elem > 5; 
+		});
+
+		console.log(newarr );
+
+		// Q 3
+
+		var data = [
+
+			{name : 'daniet', age : 45},
+			{name : 'john', age : 34},
+			{name : 'rebert', age : null},
+			{name : 'jen', age : undefined},
+			{name : null, age : undefined}
+		];
+
+
+		const newArray = data.filter((elem ) => {
+			//console.log(elem.age)
+			return elem.age != undefined;
+		});
+
+		console.log(newArray);
+
+		function aaa(){
+			return 'Hello aaa';
+		}
+
+		const sentence = aaa(`hi`);
+		console.log(sentence)
+
+		// FOR vs FOR IN vs FOR OF Loops in JavaScript
+
+		const studentName = ['hera lam', 'bhavna', 'gita', 'sadhna', 'shayam'];
+
+		// for (let i = 0; i<studentName.length; i++){
+		// 	console.log(studentName[i])
+		// }
+
+		for(let elem of studentName){
+			console.log(elem)
+		};
+
+		console.log(studentName)
+
+		
+
+		const starts = document.querySelectorAll('.star li');
+		const output = document.querySelector('.output');
+		//console.log(starts);
+
+		for(x=0; x<starts.length; x++) {
+			starts[x].startVal = (x+1);
+			['click', 'mouseover', 'mouseout'].forEach(function(e){
+		 		starts[x].addEventListener(e, showRating);
+		 	})
+			
+		}
+		function showRating(e){
+			let type = e.type;
+			//console.log(type);
+
+			let startVal = this.startVal;
+			console.log(`Star number ${startVal}`);
+
+			if(type === 'click'){
+					if(startVal > 1) {
+						output.innerHTML = "You rated this " + startVal + " star."
+					};
+				};
+
+			starts.forEach(function(elme, ind){
+				if(type === 'click'){
+					if(ind < startVal){
+						elme.classList.add('orange')
+					}else {
+						elme.classList.remove('orange')
+					}
+				}
+
+				if(type === 'mouseover'){
+					if(ind < startVal){
+						elme.classList.add('yellow')
+					}else {
+						elme.classList.remove('yellow')
+					}
+				}
+
+				if(type === 'mouseout'){
+					elme.classList.remove('yellow')
+				}
+			})
+
+		}
+
+    </script>
+
+
+</body>
+</html>
